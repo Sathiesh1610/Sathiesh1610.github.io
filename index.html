@@ -1,1217 +1,3102 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="M Sathiesh — Systems Engineer NOC and Production Support portfolio">
+
+<meta name="description"
+      content="M Sathiesh — Systems Engineer focused on NOC, Production Support, Incident Management, Monitoring and Automation.">
+
+<meta name="author" content="M Sathiesh">
+
 <title>M Sathiesh | NOC and Production Support</title>
+
+<!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="M Sathiesh | NOC and Production Support">
-<meta property="og:description" content="Systems Engineer focused on NOC, Production Support, Incident Management, Monitoring and Automation.">
+<meta property="og:description"
+      content="Systems Engineer focused on NOC, Production Support, Incident Management, Monitoring and Automation.">
 <meta property="og:url" content="https://sathiesh1610.github.io/">
 <meta property="og:image" content="https://sathiesh1610.github.io/og-image.svg">
+<meta property="og:image:alt" content="M Sathiesh — NOC and Production Support">
+<meta property="og:site_name" content="M Sathiesh Portfolio">
+
+<!-- Twitter / LinkedIn style preview -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="M Sathiesh | NOC and Production Support">
-<meta name="twitter:description" content="NOC, Production Support, Monitoring and Automation portfolio.">
+<meta name="twitter:description"
+      content="NOC, Production Support, Monitoring, Incident Management and Automation portfolio.">
+<meta name="twitter:image"
+      content="https://sathiesh1610.github.io/og-image.svg">
+
+<!-- Favicon -->
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
 <style>
-:root{
-    --bg:#080909;
-    --bg-soft:#101212;
-    --card:#151817;
-    --card-hover:#1a1e1d;
-    --text:#f4f6f5;
-    --muted:#8e9894;
-    --muted-2:#66716d;
-    --line:rgba(255,255,255,.09);
-    --accent:#25e6c3;
-    --accent-soft:rgba(37,230,195,.10);
-    --max:1180px;
-    --radius:18px;
+
+/* =========================================================
+   THEME VARIABLES
+   ========================================================= */
+
+:root {
+
+    /* Dark theme */
+    --bg: #080909;
+    --bg-soft: #0d100f;
+
+    --surface: #111514;
+    --surface-2: #151918;
+    --surface-3: #1a1f1d;
+
+    --text: #f4f6f5;
+    --text-strong: #ffffff;
+    --text-soft: #d7ddda;
+
+    --muted: #9aa5a1;
+    --muted-2: #74807b;
+
+    --border: rgba(255,255,255,.10);
+    --border-strong: rgba(255,255,255,.16);
+
+    --accent: #25e6c3;
+    --accent-dark: #0b8f7a;
+    --accent-soft: rgba(37,230,195,.10);
+    --accent-soft-2: rgba(37,230,195,.06);
+
+    --shadow:
+        0 18px 50px rgba(0,0,0,.22);
+
+    --nav-bg:
+        rgba(8,9,9,.84);
+
+    --grid-line:
+        rgba(255,255,255,.025);
+
+    --max: 1180px;
+    --radius: 18px;
 }
 
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-    margin:0;
-    color:var(--text);
+
+/* =========================================================
+   LIGHT THEME
+   ========================================================= */
+
+html.light {
+
+    --bg: #f4f7f6;
+    --bg-soft: #edf2f0;
+
+    --surface: #ffffff;
+    --surface-2: #f1f5f3;
+    --surface-3: #e8eeeb;
+
+    --text: #121816;
+    --text-strong: #080c0b;
+    --text-soft: #27312e;
+
+    --muted: #56635e;
+    --muted-2: #73807b;
+
+    --border: rgba(18,24,22,.12);
+    --border-strong: rgba(18,24,22,.18);
+
+    --accent: #087f6d;
+    --accent-dark: #056453;
+
+    --accent-soft: rgba(8,127,109,.09);
+    --accent-soft-2: rgba(8,127,109,.055);
+
+    --shadow:
+        0 16px 40px rgba(27,45,39,.09);
+
+    --nav-bg:
+        rgba(244,247,246,.88);
+
+    --grid-line:
+        rgba(18,24,22,.035);
+}
+
+
+/* =========================================================
+   GLOBAL
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    background: var(--bg);
+}
+
+body {
+
+    margin: 0;
+
+    color: var(--text);
+
     background:
-        radial-gradient(circle at 85% 5%, rgba(37,230,195,.10), transparent 25rem),
-        radial-gradient(circle at 5% 50%, rgba(37,230,195,.045), transparent 24rem),
+        radial-gradient(
+            circle at 85% 5%,
+            var(--accent-soft),
+            transparent 25rem
+        ),
+        radial-gradient(
+            circle at 5% 50%,
+            var(--accent-soft-2),
+            transparent 24rem
+        ),
         var(--bg);
-    font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-    line-height:1.6;
-    overflow-x:hidden;
+
+    font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    line-height: 1.6;
+
+    overflow-x: hidden;
+
+    transition:
+        background-color .25s ease,
+        color .25s ease;
 }
 
-body:before{
-    content:"";
-    position:fixed;
-    inset:0;
-    pointer-events:none;
-    opacity:.18;
+
+/* Background grid */
+
+body::before {
+
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    opacity: .65;
+
     background-image:
-        linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
-        linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
-    background-size:70px 70px;
-    mask-image:linear-gradient(to bottom,black,transparent 85%);
+        linear-gradient(
+            var(--grid-line) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            var(--grid-line) 1px,
+            transparent 1px
+        );
+
+    background-size: 70px 70px;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            black,
+            transparent 85%
+        );
+
+    z-index: -1;
 }
 
-a{color:inherit;text-decoration:none}
-button,a{ -webkit-tap-highlight-color:transparent }
 
-.container{
-    width:min(var(--max),calc(100% - 40px));
-    margin:auto;
+a {
+    color: inherit;
+    text-decoration: none;
 }
 
-nav{
-    position:fixed;
-    z-index:1000;
-    top:0;
-    left:0;
-    right:0;
-    border-bottom:1px solid transparent;
-    transition:.3s ease;
-}
-nav.scrolled{
-    background:rgba(8,9,9,.84);
-    backdrop-filter:blur(18px);
-    border-color:var(--line);
-}
-.nav-inner{
-    height:72px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-}
-.logo{
-    font-weight:800;
-    letter-spacing:.12em;
-    font-size:13px;
-}
-.logo span{color:var(--accent)}
-.nav-links{
-    display:flex;
-    gap:28px;
-    color:var(--muted);
-    font-size:13px;
-}
-.nav-links a{transition:.2s}
-.nav-links a:hover{color:var(--accent)}
-
-.hero{
-    min-height:100vh;
-    display:grid;
-    align-items:center;
-    padding:120px 0 80px;
-    position:relative;
-}
-.hero-grid{
-    display:grid;
-    grid-template-columns:1.25fr .75fr;
-    gap:70px;
-    align-items:end;
-}
-.eyebrow{
-    display:inline-flex;
-    align-items:center;
-    gap:9px;
-    color:var(--accent);
-    font-size:12px;
-    font-weight:700;
-    letter-spacing:.15em;
-    text-transform:uppercase;
-    margin-bottom:22px;
-}
-.eyebrow:before{
-    content:"";
-    width:30px;
-    height:1px;
-    background:var(--accent);
-}
-h1{
-    margin:0;
-    font-size:clamp(62px,9vw,132px);
-    line-height:.84;
-    letter-spacing:-.065em;
-    max-width:850px;
-}
-.hero-title{
-    margin:28px 0 0;
-    font-size:clamp(22px,3vw,36px);
-    line-height:1.15;
-    font-weight:650;
-    max-width:720px;
-}
-.hero-title span{color:var(--accent)}
-.hero-copy{
-    color:var(--muted);
-    max-width:690px;
-    font-size:16px;
-    margin:26px 0 0;
-}
-.hero-actions{
-    display:flex;
-    flex-wrap:wrap;
-    gap:12px;
-    margin-top:32px;
-}
-.btn{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    gap:9px;
-    min-height:46px;
-    padding:0 18px;
-    border:1px solid var(--line);
-    border-radius:999px;
-    font-size:13px;
-    font-weight:700;
-    transition:.25s ease;
-}
-.btn.primary{
-    color:#06100e;
-    background:var(--accent);
-    border-color:var(--accent);
-}
-.btn:hover{
-    transform:translateY(-2px);
-    border-color:rgba(37,230,195,.5);
-}
-.btn.secondary:hover{
-    color:var(--accent);
-    background:var(--accent-soft);
-}
-.hero-side{
-    border-left:1px solid var(--line);
-    padding-left:35px;
-}
-.status{
-    display:flex;
-    align-items:center;
-    gap:9px;
-    color:#cbd3d0;
-    font-size:13px;
-    margin-bottom:24px;
-}
-.status-dot{
-    width:8px;height:8px;border-radius:50%;
-    background:var(--accent);
-    box-shadow:0 0 16px var(--accent);
-}
-.contact-list{
-    display:grid;
-    gap:16px;
-}
-.contact-item small{
-    display:block;
-    color:var(--muted-2);
-    text-transform:uppercase;
-    letter-spacing:.12em;
-    font-size:9px;
-    margin-bottom:3px;
-}
-.contact-item a,.contact-item div{
-    color:#d8dddb;
-    font-size:13px;
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
 }
 
-.section{
-    padding:110px 0;
-    position:relative;
-}
-.section-header{
-    display:grid;
-    grid-template-columns:.4fr 1fr;
-    gap:40px;
-    align-items:start;
-    margin-bottom:50px;
-}
-.section-number{
-    color:var(--accent);
-    font-size:12px;
-    font-weight:800;
-    letter-spacing:.16em;
-}
-.section-title{
-    margin:0;
-    font-size:clamp(42px,6vw,78px);
-    line-height:.9;
-    letter-spacing:-.055em;
-}
-.section-intro{
-    margin:18px 0 0;
-    max-width:760px;
-    color:var(--muted);
-    font-size:15px;
+::selection {
+    background: var(--accent);
+    color: #06100e;
 }
 
-.cards{
-    display:grid;
-    gap:18px;
-}
-.card{
-    background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.018));
-    border:1px solid var(--line);
-    border-radius:var(--radius);
-    padding:30px;
-    transition:.3s ease;
-}
-.card:hover{
-    transform:translateY(-3px);
-    border-color:rgba(37,230,195,.20);
-    background:var(--card-hover);
-}
-.job-top{
-    display:flex;
-    justify-content:space-between;
-    gap:30px;
-    align-items:flex-start;
-}
-.job-role{
-    font-size:20px;
-    font-weight:750;
-}
-.company{
-    color:var(--accent);
-    font-size:12px;
-    font-weight:700;
-    letter-spacing:.06em;
-    text-transform:uppercase;
-    margin-top:5px;
-}
-.date{
-    color:var(--muted-2);
-    font-size:12px;
-    white-space:nowrap;
-}
-.job-summary{
-    color:var(--muted);
-    margin:20px 0 0;
-    max-width:930px;
-}
-.job-points{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:10px 32px;
-    margin:24px 0 0;
-    padding:0;
-    list-style:none;
-}
-.job-points li{
-    position:relative;
-    padding-left:17px;
-    color:#b9c2be;
-    font-size:13px;
-}
-.job-points li:before{
-    content:"";
-    position:absolute;
-    left:0;
-    top:.7em;
-    width:5px;height:5px;
-    border:1px solid var(--accent);
-    border-radius:50%;
+
+/* =========================================================
+   CONTAINER
+   ========================================================= */
+
+.container {
+
+    width:
+        min(
+            var(--max),
+            calc(100% - 40px)
+        );
+
+    margin: auto;
 }
 
-.projects{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:18px;
-}
-.project{
-    min-height:240px;
-    display:flex;
-    flex-direction:column;
-}
-.project-icon{
-    width:42px;height:42px;
-    display:grid;
-    place-items:center;
-    border-radius:12px;
-    color:var(--accent);
-    background:var(--accent-soft);
-    border:1px solid rgba(37,230,195,.18);
-    margin-bottom:25px;
-}
-.project h3{
-    margin:0;
-    font-size:20px;
-}
-.project .tech{
-    margin-top:8px;
-    color:var(--accent);
-    font-size:11px;
-    font-weight:700;
-    letter-spacing:.08em;
-    text-transform:uppercase;
-}
-.project p{
-    color:var(--muted);
-    font-size:13px;
-    margin:16px 0 0;
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+nav {
+
+    position: fixed;
+
+    z-index: 1000;
+
+    top: 0;
+    left: 0;
+    right: 0;
+
+    border-bottom: 1px solid transparent;
+
+    transition:
+        background-color .25s ease,
+        border-color .25s ease,
+        backdrop-filter .25s ease;
 }
 
-.skills-panel{
-    border:1px solid var(--line);
-    border-radius:var(--radius);
-    padding:30px;
-    background:#101312;
-}
-.skill-group{
-    padding:25px 0;
-    border-bottom:1px solid var(--line);
-}
-.skill-group:first-child{padding-top:0}
-.skill-group:last-child{
-    border-bottom:0;
-    padding-bottom:0;
-}
-.skill-group-title{
-    color:#eef2f0;
-    font-size:12px;
-    font-weight:800;
-    letter-spacing:.08em;
-    text-transform:uppercase;
-    margin-bottom:15px;
-}
-.tags{
-    display:flex;
-    flex-wrap:wrap;
-    gap:8px;
-}
-.tag{
-    padding:8px 11px;
-    border:1px solid var(--line);
-    border-radius:999px;
-    color:#aeb8b4;
-    font-size:11px;
-    transition:.2s;
-}
-.tag:hover{
-    color:var(--accent);
-    border-color:rgba(37,230,195,.35);
-    background:var(--accent-soft);
+nav.scrolled {
+
+    background: var(--nav-bg);
+
+    backdrop-filter: blur(18px);
+
+    border-color: var(--border);
 }
 
-.education{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:18px;
-}
-.edu-year{
-    color:var(--accent);
-    font-size:11px;
-    font-weight:800;
-    letter-spacing:.12em;
-}
-.edu-card h3{
-    margin:13px 0 5px;
-    font-size:19px;
-}
-.edu-card p{
-    color:var(--muted);
-    margin:0;
-    font-size:13px;
+.nav-inner {
+
+    height: 72px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
 }
 
-.certifications{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:18px;
-}
-.cert{
-    display:flex;
-    gap:17px;
-    align-items:center;
-}
-.cert-icon{
-    width:44px;height:44px;
-    flex:none;
-    border-radius:12px;
-    display:grid;
-    place-items:center;
-    color:var(--accent);
-    border:1px solid rgba(37,230,195,.18);
-    background:var(--accent-soft);
-}
-.cert h3{
-    font-size:14px;
-    margin:0;
-}
-.cert p{
-    color:var(--muted);
-    font-size:11px;
-    margin:4px 0 0;
+.logo {
+
+    font-weight: 800;
+
+    letter-spacing: .12em;
+
+    font-size: 13px;
 }
 
-.training{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:12px;
-}
-.training-item{
-    padding:17px 18px;
-    border:1px solid var(--line);
-    border-radius:12px;
-    color:#b8c1be;
-    font-size:12px;
-    background:rgba(255,255,255,.018);
+.logo span {
+    color: var(--accent);
 }
 
-.timeline{
-    position:relative;
-    max-width:900px;
-    margin:auto;
-}
-.timeline:before{
-    content:"";
-    position:absolute;
-    top:0;
-    bottom:0;
-    left:50%;
-    width:1px;
-    background:var(--line);
-}
-.timeline-item{
-    width:50%;
-    padding:0 38px 55px;
-    position:relative;
-}
-.timeline-item:nth-child(odd){
-    text-align:right;
-}
-.timeline-item:nth-child(even){
-    margin-left:50%;
-}
-.timeline-node{
-    position:absolute;
-    top:4px;
-    width:9px;height:9px;
-    border-radius:50%;
-    background:var(--accent);
-    box-shadow:0 0 0 5px rgba(37,230,195,.08),0 0 18px rgba(37,230,195,.4);
-}
-.timeline-item:nth-child(odd) .timeline-node{right:-4px}
-.timeline-item:nth-child(even) .timeline-node{left:-4px}
-.timeline-card{
-    display:inline-block;
-    text-align:left;
-    width:min(100%,330px);
-    padding:20px;
-    border:1px solid var(--line);
-    border-radius:14px;
-    background:#111514;
-}
-.timeline-card .year{
-    color:var(--accent);
-    font-size:10px;
-    font-weight:800;
-    letter-spacing:.1em;
-}
-.timeline-card h3{
-    font-size:14px;
-    line-height:1.35;
-    margin:8px 0 4px;
-}
-.timeline-card p{
-    color:var(--muted);
-    font-size:11px;
-    margin:0;
+.nav-links {
+
+    display: flex;
+
+    gap: 28px;
+
+    color: var(--muted);
+
+    font-size: 13px;
 }
 
-footer{
-    padding:30px 0 45px;
-    border-top:1px solid var(--line);
-    color:var(--muted-2);
-    font-size:11px;
-}
-.footer-inner{
-    display:flex;
-    justify-content:space-between;
-    gap:20px;
-}
-.footer-name{
-    color:#dce1df;
-    font-weight:800;
-    letter-spacing:.12em;
+.nav-links a {
+    transition: color .2s ease;
 }
 
-.reveal{
-    opacity:0;
-    transform:translateY(22px);
-    transition:opacity .7s ease,transform .7s ease;
-}
-.reveal.visible{
-    opacity:1;
-    transform:none;
+.nav-links a:hover {
+    color: var(--accent);
 }
 
-@media(max-width:900px){
-    .hero-grid{grid-template-columns:1fr;gap:45px}
-    .hero-side{
-        border-left:0;
-        border-top:1px solid var(--line);
-        padding:25px 0 0;
+
+/* Theme toggle */
+
+.nav-theme {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    border: 1px solid var(--border);
+
+    background: var(--surface);
+
+    color: var(--text);
+
+    border-radius: 999px;
+
+    padding: 7px 11px;
+
+    font: inherit;
+
+    font-size: 12px;
+
+    cursor: pointer;
+
+    transition:
+        color .2s ease,
+        background-color .2s ease,
+        border-color .2s ease;
+}
+
+.nav-theme:hover {
+
+    border-color: var(--accent);
+
+    color: var(--accent);
+}
+
+.nav-theme-icon {
+
+    font-size: 15px;
+
+    line-height: 1;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+
+    min-height: 100vh;
+
+    display: grid;
+
+    align-items: center;
+
+    padding: 120px 0 80px;
+
+    position: relative;
+}
+
+.hero-grid {
+
+    display: grid;
+
+    grid-template-columns: 1.25fr .75fr;
+
+    gap: 70px;
+
+    align-items: end;
+}
+
+.eyebrow {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    color: var(--accent);
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: .15em;
+
+    text-transform: uppercase;
+
+    margin-bottom: 22px;
+}
+
+.eyebrow::before {
+
+    content: "";
+
+    width: 30px;
+
+    height: 1px;
+
+    background: var(--accent);
+}
+
+h1 {
+
+    margin: 0;
+
+    font-size: clamp(62px, 9vw, 132px);
+
+    line-height: .84;
+
+    letter-spacing: -.065em;
+
+    max-width: 850px;
+
+    color: var(--text-strong);
+}
+
+.hero-title {
+
+    margin: 28px 0 0;
+
+    font-size: clamp(22px, 3vw, 36px);
+
+    line-height: 1.15;
+
+    font-weight: 650;
+
+    max-width: 720px;
+}
+
+.hero-title span {
+    color: var(--accent);
+}
+
+.hero-copy {
+
+    color: var(--muted);
+
+    max-width: 690px;
+
+    font-size: 16px;
+
+    margin: 26px 0 0;
+}
+
+.hero-actions {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-top: 32px;
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.btn {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 9px;
+
+    min-height: 46px;
+
+    padding: 0 18px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 999px;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    transition:
+        transform .25s ease,
+        color .25s ease,
+        background-color .25s ease,
+        border-color .25s ease;
+}
+
+.btn.primary {
+
+    color: #06100e;
+
+    background: var(--accent);
+
+    border-color: var(--accent);
+}
+
+.btn.secondary {
+
+    color: var(--text);
+
+    background: var(--surface);
+
+    border-color: var(--border);
+}
+
+.btn:hover {
+
+    transform: translateY(-2px);
+
+    border-color: var(--accent);
+}
+
+.btn.secondary:hover {
+
+    color: var(--accent);
+
+    background: var(--accent-soft);
+}
+
+
+/* =========================================================
+   HERO SIDE
+   ========================================================= */
+
+.hero-side {
+
+    border-left: 1px solid var(--border);
+
+    padding-left: 35px;
+}
+
+.status {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    color: var(--text-soft);
+
+    font-size: 13px;
+
+    margin-bottom: 24px;
+}
+
+.status-dot {
+
+    width: 8px;
+
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: var(--accent);
+
+    box-shadow: 0 0 16px var(--accent);
+}
+
+.contact-list {
+
+    display: grid;
+
+    gap: 16px;
+}
+
+.contact-item small {
+
+    display: block;
+
+    color: var(--muted-2);
+
+    text-transform: uppercase;
+
+    letter-spacing: .12em;
+
+    font-size: 9px;
+
+    margin-bottom: 3px;
+}
+
+.contact-item a,
+.contact-item div {
+
+    color: var(--text-soft);
+
+    font-size: 13px;
+}
+
+.contact-item a:hover {
+    color: var(--accent);
+}
+
+
+/* =========================================================
+   SECTIONS
+   ========================================================= */
+
+.section {
+
+    padding: 110px 0;
+
+    position: relative;
+}
+
+.section-header {
+
+    display: grid;
+
+    grid-template-columns: .4fr 1fr;
+
+    gap: 40px;
+
+    align-items: start;
+
+    margin-bottom: 50px;
+}
+
+.section-number {
+
+    color: var(--accent);
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    letter-spacing: .16em;
+}
+
+.section-title {
+
+    margin: 0;
+
+    font-size: clamp(42px, 6vw, 78px);
+
+    line-height: .9;
+
+    letter-spacing: -.055em;
+
+    color: var(--text-strong);
+}
+
+.section-intro {
+
+    margin: 18px 0 0;
+
+    max-width: 760px;
+
+    color: var(--muted);
+
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   CARDS
+   ========================================================= */
+
+.cards {
+
+    display: grid;
+
+    gap: 18px;
+}
+
+.card {
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    padding: 30px;
+
+    box-shadow: var(--shadow);
+
+    transition:
+        transform .3s ease,
+        background-color .25s ease,
+        border-color .25s ease,
+        box-shadow .3s ease;
+}
+
+.card:hover {
+
+    transform: translateY(-3px);
+
+    border-color: var(--accent-soft);
+
+    box-shadow:
+        0 20px 55px rgba(0,0,0,.12);
+}
+
+.job-top {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 30px;
+
+    align-items: flex-start;
+}
+
+.job-role {
+
+    font-size: 20px;
+
+    font-weight: 750;
+
+    color: var(--text-strong);
+}
+
+.company {
+
+    color: var(--accent);
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: .06em;
+
+    text-transform: uppercase;
+
+    margin-top: 5px;
+}
+
+.date {
+
+    color: var(--muted-2);
+
+    font-size: 12px;
+
+    white-space: nowrap;
+}
+
+.job-summary {
+
+    color: var(--muted);
+
+    margin: 20px 0 0;
+
+    max-width: 930px;
+}
+
+.job-points {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 10px 32px;
+
+    margin: 24px 0 0;
+
+    padding: 0;
+
+    list-style: none;
+}
+
+.job-points li {
+
+    position: relative;
+
+    padding-left: 17px;
+
+    color: var(--text-soft);
+
+    font-size: 13px;
+}
+
+.job-points li::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    top: .7em;
+
+    width: 5px;
+
+    height: 5px;
+
+    border: 1px solid var(--accent);
+
+    border-radius: 50%;
+}
+
+
+/* =========================================================
+   PROJECTS
+   ========================================================= */
+
+.projects {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 18px;
+}
+
+.project {
+
+    min-height: 240px;
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+.project-icon {
+
+    width: 42px;
+
+    height: 42px;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 12px;
+
+    color: var(--accent);
+
+    background: var(--accent-soft);
+
+    border: 1px solid var(--border);
+
+    margin-bottom: 25px;
+
+    font-size: 13px;
+
+    font-weight: 800;
+}
+
+.project h3 {
+
+    margin: 0;
+
+    font-size: 20px;
+
+    color: var(--text-strong);
+}
+
+.project .tech {
+
+    margin-top: 8px;
+
+    color: var(--accent);
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: .08em;
+
+    text-transform: uppercase;
+}
+
+.project p {
+
+    color: var(--muted);
+
+    font-size: 13px;
+
+    margin: 16px 0 0;
+}
+
+
+/* =========================================================
+   TECHNICAL TOOLKIT
+   ========================================================= */
+
+.skills-panel {
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    padding: 30px;
+
+    background: var(--surface);
+
+    box-shadow: var(--shadow);
+
+    transition:
+        background-color .25s ease,
+        border-color .25s ease,
+        box-shadow .25s ease;
+}
+
+.skill-group {
+
+    padding: 25px 0;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.skill-group:first-child {
+    padding-top: 0;
+}
+
+.skill-group:last-child {
+
+    border-bottom: 0;
+
+    padding-bottom: 0;
+}
+
+.skill-group-title {
+
+    color: var(--text-strong);
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    letter-spacing: .08em;
+
+    text-transform: uppercase;
+
+    margin-bottom: 15px;
+}
+
+.tags {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+}
+
+.tag {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    min-height: 32px;
+
+    padding: 6px 11px;
+
+    border: 1px solid var(--border-strong);
+
+    border-radius: 999px;
+
+    color: var(--text-soft);
+
+    background: var(--surface-2);
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    line-height: 1.25;
+
+    transition:
+        color .2s ease,
+        background-color .2s ease,
+        border-color .2s ease,
+        transform .2s ease;
+}
+
+.tag:hover {
+
+    color: var(--accent);
+
+    border-color: var(--accent);
+
+    background: var(--accent-soft);
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   EDUCATION
+   ========================================================= */
+
+.education {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 18px;
+}
+
+.edu-year {
+
+    color: var(--accent);
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: .12em;
+}
+
+.edu-card h3 {
+
+    margin: 13px 0 5px;
+
+    font-size: 19px;
+
+    color: var(--text-strong);
+}
+
+.edu-card p {
+
+    color: var(--muted);
+
+    margin: 0;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   CERTIFICATIONS
+   ========================================================= */
+
+.certifications {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 18px;
+}
+
+.cert {
+
+    display: flex;
+
+    gap: 17px;
+
+    align-items: center;
+}
+
+.cert-icon {
+
+    width: 44px;
+
+    height: 44px;
+
+    flex: none;
+
+    border-radius: 12px;
+
+    display: grid;
+
+    place-items: center;
+
+    color: var(--accent);
+
+    border: 1px solid var(--border);
+
+    background: var(--accent-soft);
+}
+
+.cert h3 {
+
+    font-size: 14px;
+
+    margin: 0;
+
+    color: var(--text-strong);
+}
+
+.cert p {
+
+    color: var(--muted);
+
+    font-size: 11px;
+
+    margin: 4px 0 0;
+}
+
+
+/* =========================================================
+   TRAINING
+   ========================================================= */
+
+.training {
+
+    display: grid;
+
+    grid-template-columns: repeat(3,1fr);
+
+    gap: 12px;
+}
+
+.training-item {
+
+    padding: 17px 18px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+    color: var(--text-soft);
+
+    font-size: 12px;
+
+    background: var(--surface);
+
+    box-shadow: var(--shadow);
+
+    transition:
+        background-color .25s ease,
+        border-color .25s ease,
+        transform .2s ease;
+}
+
+.training-item:hover {
+
+    border-color: var(--accent);
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   TIMELINE
+   ========================================================= */
+
+.timeline {
+
+    position: relative;
+
+    max-width: 900px;
+
+    margin: auto;
+}
+
+.timeline::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    bottom: 0;
+
+    left: 50%;
+
+    width: 1px;
+
+    background: var(--border);
+}
+
+.timeline-item {
+
+    width: 50%;
+
+    padding: 0 38px 55px;
+
+    position: relative;
+}
+
+.timeline-item:nth-child(odd) {
+    text-align: right;
+}
+
+.timeline-item:nth-child(even) {
+    margin-left: 50%;
+}
+
+.timeline-node {
+
+    position: absolute;
+
+    top: 4px;
+
+    width: 9px;
+
+    height: 9px;
+
+    border-radius: 50%;
+
+    background: var(--accent);
+
+    box-shadow:
+        0 0 0 5px var(--accent-soft),
+        0 0 18px var(--accent-soft);
+}
+
+.timeline-item:nth-child(odd) .timeline-node {
+    right: -4px;
+}
+
+.timeline-item:nth-child(even) .timeline-node {
+    left: -4px;
+}
+
+.timeline-card {
+
+    display: inline-block;
+
+    text-align: left;
+
+    width: min(100%,330px);
+
+    padding: 20px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 14px;
+
+    background: var(--surface);
+
+    box-shadow: var(--shadow);
+
+    transition:
+        background-color .25s ease,
+        border-color .25s ease,
+        transform .25s ease;
+}
+
+.timeline-card:hover {
+
+    border-color: var(--accent);
+
+    transform: translateY(-2px);
+}
+
+.timeline-card .year {
+
+    color: var(--accent);
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: .1em;
+}
+
+.timeline-card h3 {
+
+    font-size: 14px;
+
+    line-height: 1.35;
+
+    margin: 8px 0 4px;
+
+    color: var(--text-strong);
+}
+
+.timeline-card p {
+
+    color: var(--muted);
+
+    font-size: 11px;
+
+    margin: 0;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer {
+
+    padding: 30px 0 45px;
+
+    border-top: 1px solid var(--border);
+
+    color: var(--muted-2);
+
+    font-size: 11px;
+}
+
+.footer-inner {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+.footer-name {
+
+    color: var(--text-strong);
+
+    font-weight: 800;
+
+    letter-spacing: .12em;
+}
+
+
+/* =========================================================
+   ANIMATION
+   ========================================================= */
+
+.reveal {
+
+    opacity: 0;
+
+    transform: translateY(22px);
+
+    transition:
+        opacity .7s ease,
+        transform .7s ease;
+}
+
+.reveal.visible {
+
+    opacity: 1;
+
+    transform: none;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media(max-width:900px) {
+
+    .hero-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 45px;
     }
-    .section-header{grid-template-columns:1fr;gap:12px}
-    .projects,.certifications,.education{grid-template-columns:1fr}
-    .job-points{grid-template-columns:1fr}
-    .training{grid-template-columns:1fr 1fr}
+
+    .hero-side {
+
+        border-left: 0;
+
+        border-top: 1px solid var(--border);
+
+        padding: 25px 0 0;
+    }
+
+    .section-header {
+
+        grid-template-columns: 1fr;
+
+        gap: 12px;
+    }
+
+    .projects,
+    .certifications,
+    .education {
+
+        grid-template-columns: 1fr;
+    }
+
+    .job-points {
+
+        grid-template-columns: 1fr;
+    }
+
+    .training {
+
+        grid-template-columns: 1fr 1fr;
+    }
 }
-@media(max-width:650px){
-.hero-actions .btn{width:100%}.hero-actions{display:grid;grid-template-columns:1fr}.section-title{font-size:clamp(42px,14vw,64px)}
-    .container{width:min(100% - 28px,var(--max))}
-    .nav-links{display:none}
-    .nav-inner{height:62px}
-    .hero{padding-top:100px}
-    .hero h1{font-size:clamp(56px,17vw,90px)}
-    .section{padding:80px 0}
-    .card{padding:22px}
-    .job-top{flex-direction:column;gap:7px}
-    .date{white-space:normal}
-    .training{grid-template-columns:1fr}
-    .timeline:before{left:8px}
+
+
+@media(max-width:650px) {
+
+    .container {
+
+        width:
+            min(
+                calc(100% - 28px),
+                var(--max)
+            );
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .nav-inner {
+        height: 62px;
+    }
+
+    .nav-theme {
+        padding: 7px 9px;
+    }
+
+    .hero {
+
+        padding-top: 100px;
+    }
+
+    .hero h1 {
+
+        font-size:
+            clamp(
+                56px,
+                17vw,
+                90px
+            );
+    }
+
+    .hero-actions {
+
+        display: grid;
+
+        grid-template-columns: 1fr;
+    }
+
+    .hero-actions .btn {
+        width: 100%;
+    }
+
+    .section {
+
+        padding: 80px 0;
+    }
+
+    .section-title {
+
+        font-size:
+            clamp(
+                42px,
+                14vw,
+                64px
+            );
+    }
+
+    .card {
+
+        padding: 22px;
+    }
+
+    .job-top {
+
+        flex-direction: column;
+
+        gap: 7px;
+    }
+
+    .date {
+
+        white-space: normal;
+    }
+
+    .training {
+
+        grid-template-columns: 1fr;
+    }
+
+    .skills-panel {
+
+        padding: 22px;
+    }
+
+    .skill-group {
+
+        padding: 22px 0;
+    }
+
+    .tag {
+
+        font-size: 10px;
+
+        padding: 6px 9px;
+    }
+
+    .timeline::before {
+
+        left: 8px;
+    }
+
     .timeline-item,
-    .timeline-item:nth-child(even){
-        width:100%;
-        margin-left:0;
-        padding-left:35px;
-        padding-right:0;
-        text-align:left;
+    .timeline-item:nth-child(even) {
+
+        width: 100%;
+
+        margin-left: 0;
+
+        padding-left: 35px;
+
+        padding-right: 0;
+
+        text-align: left;
     }
+
     .timeline-item:nth-child(odd) .timeline-node,
-    .timeline-item:nth-child(even) .timeline-node{
-        left:4px;
-        right:auto;
+    .timeline-item:nth-child(even) .timeline-node {
+
+        left: 4px;
+
+        right: auto;
     }
-    .footer-inner{flex-direction:column}
-}
-@media(prefers-reduced-motion:reduce){
-    html{scroll-behavior:auto}
-    .reveal{opacity:1;transform:none;transition:none}
-    .btn,.card{transition:none}
+
+    .footer-inner {
+
+        flex-direction: column;
+    }
 }
 
-/* Light / Dark theme */
-:root{
-    --bg:#080909;
-    --surface:#101212;
-    --surface-2:#151818;
-    --text:#f4f6f5;
-    --muted:#9aa5a1;
-    --border:rgba(255,255,255,.12);
-    --accent:#25e6c3;
-    --accent-soft:rgba(37,230,195,.10);
-    --shadow:0 18px 50px rgba(0,0,0,.22);
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media(prefers-reduced-motion:reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    .reveal {
+
+        opacity: 1;
+
+        transform: none;
+
+        transition: none;
+    }
+
+    .btn,
+    .card,
+    .tag,
+    .training-item,
+    .timeline-card {
+
+        transition: none;
+    }
 }
-html.light{
-    --bg:#f5f7f6;
-    --surface:#ffffff;
-    --surface-2:#eef2f0;
-    --text:#101514;
-    --muted:#5d6864;
-    --border:rgba(16,21,20,.13);
-    --accent:#087f6d;
-    --accent-soft:rgba(8,127,109,.09);
-    --shadow:0 18px 50px rgba(24,42,36,.10);
-}
-html,body{
-    background:var(--bg);
-    color:var(--text);
-    transition:background-color .25s ease,color .25s ease;
-}
-nav,.card,.hero-side,.status,.tag,.btn.secondary,.project-icon{
-    transition:background-color .25s ease,color .25s ease,border-color .25s ease,box-shadow .25s ease;
-}
-.card,.hero-side{background:var(--surface)!important;border-color:var(--border)!important;box-shadow:var(--shadow)}
-.status,.tag,.project-icon{background:var(--surface-2)!important;border-color:var(--border)!important}
-.section-intro,.hero-copy,.job-summary,.card p{color:var(--muted)!important}
-.company,.tech,.date,.section-number,.contact-item small{color:var(--accent)!important}
-.btn.secondary{border-color:var(--border)!important;color:var(--text)!important;background:var(--surface)!important}
-.nav-theme{
-    display:inline-flex;
-    align-items:center;
-    gap:7px;
-    border:1px solid var(--border);
-    background:var(--surface);
-    color:var(--text);
-    border-radius:999px;
-    padding:7px 11px;
-    font:inherit;
-    font-size:12px;
-    cursor:pointer;
-}
-.nav-theme:hover{border-color:var(--accent);color:var(--accent)}
-.nav-theme-icon{font-size:15px;line-height:1}
-@media(max-width:650px){.nav-theme{padding:7px 9px}}
 
 </style>
 </head>
 
+
 <body>
 
+<!-- ======================================================
+     NAVIGATION
+     ====================================================== -->
+
 <nav id="nav">
+
     <div class="container nav-inner">
-        <a class="logo" href="#top">SATHIESH<span>.</span></a>
+
+        <a class="logo" href="#top">
+            SATHIESH<span>.</span>
+        </a>
+
         <div class="nav-links">
+
             <a href="#experience">Experience</a>
+
             <a href="#projects">Projects</a>
+
             <a href="#skills">Skills</a>
+
             <a href="#education">Education</a>
+
             <a href="#timeline">Timeline</a>
+
         </div>
-        <button class="nav-theme" id="themeToggle" type="button" aria-label="Switch to light mode" title="Switch theme">
-            <span class="nav-theme-icon" id="themeIcon">☀</span>
-            <span id="themeLabel">Light</span>
+
+        <button
+            class="nav-theme"
+            id="themeToggle"
+            type="button"
+            aria-label="Switch to light mode"
+            title="Switch theme">
+
+            <span
+                class="nav-theme-icon"
+                id="themeIcon">☀</span>
+
+            <span id="themeLabel">
+                Light
+            </span>
+
         </button>
+
     </div>
+
 </nav>
+
+
+<!-- ======================================================
+     MAIN
+     ====================================================== -->
 
 <main id="top">
 
+
+<!-- ======================================================
+     HERO
+     ====================================================== -->
+
 <section class="hero">
+
     <div class="container hero-grid">
 
         <div class="reveal">
-            <div class="eyebrow">NOC · Production Support · Automation</div>
 
-            <h1>M<br>SATHIESH</h1>
+            <div class="eyebrow">
+                NOC · Production Support · Automation
+            </div>
+
+            <h1>
+                M<br>
+                SATHIESH
+            </h1>
 
             <div class="hero-title">
-                Systems Engineer <span>NOC and Production Support</span>
+                Systems Engineer
+                <span>NOC and Production Support</span>
             </div>
 
             <p class="hero-copy">
-                NOC and Production Support professional with 6+ years of experience
-                across production and non-production environments, incident,
-                problem and change management, monitoring, troubleshooting and
-                operational automation.
+                NOC and Production Support professional with 6+ years
+                of experience across production and non-production
+                environments, incident, problem and change management,
+                monitoring, troubleshooting and operational automation.
             </p>
 
             <div class="hero-actions">
-                <a class="btn primary" href="#projects">View Projects ↓</a>
-                <a class="btn secondary" href="Sathiesh_Resume.pdf" download>Download Resume</a>
-                <a class="btn secondary" href="https://github.com/Sathiesh1610" target="_blank" rel="noopener">GitHub ↗</a>
-                <a class="btn secondary" href="https://www.linkedin.com/in/m-sathiesh-357b39231/" target="_blank" rel="noopener">LinkedIn ↗</a>
+
+                <a
+                    class="btn primary"
+                    href="#projects">
+                    View Projects ↓
+                </a>
+
+                <a
+                    class="btn secondary"
+                    href="Sathiesh_Resume.pdf"
+                    download>
+                    Download Resume
+                </a>
+
+                <a
+                    class="btn secondary"
+                    href="https://github.com/Sathiesh1610"
+                    target="_blank"
+                    rel="noopener">
+                    GitHub ↗
+                </a>
+
+                <a
+                    class="btn secondary"
+                    href="https://www.linkedin.com/in/m-sathiesh-357b39231/"
+                    target="_blank"
+                    rel="noopener">
+                    LinkedIn ↗
+                </a>
+
             </div>
+
         </div>
 
+
         <aside class="hero-side reveal">
+
             <div class="status">
+
                 <span class="status-dot"></span>
+
                 Open to Production Support opportunities
+
             </div>
 
             <div class="contact-list">
+
                 <div class="contact-item">
+
                     <small>Location</small>
-                    <div>Bengaluru, India</div>
+
+                    <div>
+                        Bengaluru, India
+                    </div>
+
                 </div>
+
+
                 <div class="contact-item">
+
                     <small>Phone</small>
-                    <a href="tel:+919071276172">+91 9071276172</a>
+
+                    <a href="tel:+919071276172">
+                        +91 9071276172
+                    </a>
+
                 </div>
+
+
                 <div class="contact-item">
+
                     <small>Email</small>
-                    <a href="mailto:sathieshlingam16@outlook.com">sathieshlingam16@outlook.com</a>
+
+                    <a href="mailto:sathieshlingam16@outlook.com">
+                        sathieshlingam16@outlook.com
+                    </a>
+
                 </div>
+
+
                 <div class="contact-item">
+
                     <small>Focus</small>
-                    <div>Incident Management · Monitoring · Automation</div>
+
+                    <div>
+                        Incident Management · Monitoring · Automation
+                    </div>
+
                 </div>
+
             </div>
+
         </aside>
 
     </div>
+
 </section>
+
+
+<!-- ======================================================
+     EXPERIENCE
+     ====================================================== -->
 
 <section class="section" id="experience">
-    <div class="container">
 
-        <div class="section-header reveal">
-            <div class="section-number">01 / EXPERIENCE</div>
-            <div>
-                <h2 class="section-title">Production<br>Operations</h2>
-                <p class="section-intro">
-                    Experience supporting infrastructure and application environments
-                    through 24x7 NOC operations, major incident response, monitoring,
-                    problem management, change coordination and operational reporting.
-                </p>
-            </div>
+<div class="container">
+
+    <div class="section-header reveal">
+
+        <div class="section-number">
+            01 / EXPERIENCE
         </div>
 
-        <div class="cards">
+        <div>
 
-            <article class="card reveal">
-                <div class="job-top">
-                    <div>
-                        <div class="job-role">Systems Engineer NOC and Incident Management</div>
-                        <div class="company">INFOSYS</div>
-                    </div>
-                    <div class="date">April 2022 – Present</div>
-                </div>
+            <h2 class="section-title">
+                Production<br>
+                Operations
+            </h2>
 
-                <p class="job-summary">
-                    Provide NOC, Production and Non-Production Support for
-                    infrastructure and application environments within a 24x7
-                    operational support model.
-                </p>
-
-                <ul class="job-points">
-                    <li>Manage Major Incidents and P1/P2 incidents, assessing business impact, coordinating resolver teams and driving timely service restoration.</li>
-                    <li>Apply proactive and reactive approaches to Incident and Problem Management, analysing recurring incidents and operational trends.</li>
-                    <li>Perform Problem Management activities supporting root-cause investigations and corrective or preventive actions.</li>
-                    <li>Coordinate Change Management across production and non-production environments, including deployments, patching and scheduled maintenance.</li>
-                    <li>Apply proactive change practices by assessing service impact, dependencies and operational risk before implementation.</li>
-                    <li>Monitor infrastructure and application environments using Splunk, Splunk Observability, Check_MK, AppDynamics, PRTG and SolarWinds.</li>
-                    <li>Use Park My Cloud and IBM Turbonomic for operational infrastructure and resource-management visibility.</li>
-                    <li>Perform Azure Portal monitoring and preliminary troubleshooting using alerts, logs and resource-level investigation.</li>
-                    <li>Manage incidents, problems and changes through ServiceNow while maintaining operational records and stakeholder communications.</li>
-                    <li>Coordinate cross-functional teams during critical service disruptions and provide structured updates to technical and client stakeholders.</li>
-                </ul>
-            </article>
-
-            <article class="card reveal">
-                <div class="job-top">
-                    <div>
-                        <div class="job-role">Project Engineer</div>
-                        <div class="company">Symbiotic Automation Systems Pvt. Ltd.</div>
-                    </div>
-                    <div class="date">June 2020 – March 2022</div>
-                </div>
-
-                <p class="job-summary">
-                    Worked on industrial automation systems with responsibility for
-                    troubleshooting, programming, system testing and resolving
-                    technical issues across client projects.
-                </p>
-
-                <ul class="job-points">
-                    <li>Troubleshot industrial automation systems to resolve technical issues and improve system reliability.</li>
-                    <li>Investigated system issues and implemented corrective actions while supporting project delivery and technical quality.</li>
-                    <li>Performed programming and system testing for industrial automation projects.</li>
-                    <li>Collaborated with cross-functional teams to address automation-related issues and support project execution.</li>
-                </ul>
-            </article>
+            <p class="section-intro">
+                Experience supporting infrastructure and application
+                environments through 24x7 NOC operations, major incident
+                response, monitoring, problem management, change
+                coordination and operational reporting.
+            </p>
 
         </div>
+
     </div>
+
+
+    <div class="cards">
+
+
+        <!-- INFOSYS -->
+
+        <article class="card reveal">
+
+            <div class="job-top">
+
+                <div>
+
+                    <div class="job-role">
+                        Systems Engineer NOC and Incident Management
+                    </div>
+
+                    <div class="company">
+                        INFOSYS
+                    </div>
+
+                </div>
+
+                <div class="date">
+                    April 2022 – Present
+                </div>
+
+            </div>
+
+
+            <p class="job-summary">
+
+                Provide NOC, Production and Non-Production Support
+                for infrastructure and application environments within
+                a 24x7 operational support model.
+
+            </p>
+
+
+            <ul class="job-points">
+
+                <li>
+                    Manage Major Incidents and P1/P2 incidents,
+                    assessing business impact, coordinating resolver
+                    teams and driving timely service restoration.
+                </li>
+
+                <li>
+                    Apply proactive and reactive approaches to Incident
+                    and Problem Management, analysing recurring incidents
+                    and operational trends.
+                </li>
+
+                <li>
+                    Perform Problem Management activities supporting
+                    root-cause investigations and corrective or
+                    preventive actions.
+                </li>
+
+                <li>
+                    Coordinate Change Management across production and
+                    non-production environments, including deployments,
+                    patching and scheduled maintenance.
+                </li>
+
+                <li>
+                    Apply proactive change practices by assessing
+                    service impact, dependencies and operational risk
+                    before implementation.
+                </li>
+
+                <li>
+                    Monitor infrastructure and application environments
+                    using Splunk, Splunk Observability, Check_MK,
+                    AppDynamics, PRTG and SolarWinds.
+                </li>
+
+                <li>
+                    Use Park My Cloud and IBM Turbonomic for operational
+                    infrastructure and resource-management visibility.
+                </li>
+
+                <li>
+                    Perform Azure Portal monitoring and preliminary
+                    troubleshooting using alerts, logs and
+                    resource-level investigation.
+                </li>
+
+                <li>
+                    Manage incidents, problems and changes through
+                    ServiceNow while maintaining operational records
+                    and stakeholder communications.
+                </li>
+
+                <li>
+                    Coordinate cross-functional teams during critical
+                    service disruptions and provide structured updates
+                    to technical and client stakeholders.
+                </li>
+
+            </ul>
+
+        </article>
+
+
+        <!-- SYMBIOTIC -->
+
+        <article class="card reveal">
+
+            <div class="job-top">
+
+                <div>
+
+                    <div class="job-role">
+                        Project Engineer
+                    </div>
+
+                    <div class="company">
+                        Symbiotic Automation Systems Pvt. Ltd.
+                    </div>
+
+                </div>
+
+                <div class="date">
+                    June 2020 – March 2022
+                </div>
+
+            </div>
+
+
+            <p class="job-summary">
+
+                Worked on industrial automation systems with
+                responsibility for troubleshooting, programming,
+                system testing and resolving technical issues across
+                client projects.
+
+            </p>
+
+
+            <ul class="job-points">
+
+                <li>
+                    Troubleshot industrial automation systems to
+                    resolve technical issues and improve system
+                    reliability.
+                </li>
+
+                <li>
+                    Investigated system issues and implemented
+                    corrective actions while supporting project
+                    delivery and technical quality.
+                </li>
+
+                <li>
+                    Performed programming and system testing for
+                    industrial automation projects.
+                </li>
+
+                <li>
+                    Collaborated with cross-functional teams to address
+                    automation-related issues and support project
+                    execution.
+                </li>
+
+            </ul>
+
+        </article>
+
+    </div>
+
+</div>
+
 </section>
+
+
+<!-- ======================================================
+     PROJECTS
+     ====================================================== -->
 
 <section class="section" id="projects">
-    <div class="container">
 
-        <div class="section-header reveal">
-            <div class="section-number">02 / PROJECTS</div>
-            <div>
-                <h2 class="section-title">Automation<br>in Practice</h2>
-                <p class="section-intro">
-                    Practical tools and dashboards developed to reduce repetitive
-                    operational work, improve visibility and simplify reporting.
-                </p>
-            </div>
+<div class="container">
+
+    <div class="section-header reveal">
+
+        <div class="section-number">
+            02 / PROJECTS
         </div>
 
-        <div class="projects">
+        <div>
 
-            <article class="card project reveal">
-                <div class="project-icon">↗</div>
-                <h3>Health Check Dashboard</h3>
-                <div class="tech">React · HTML · CSV · Operational Monitoring</div>
-                <p>
-                    Developed a table-style dashboard for daily application and
-                    infrastructure health collection. Added quick search,
-                    RED/AMBER/GREEN categorisation, read-only management views
-                    and CSV export to replace a manual Excel-based process.
-                </p>
-            </article>
+            <h2 class="section-title">
+                Automation<br>
+                in Practice
+            </h2>
 
-            <article class="card project reveal">
-                <div class="project-icon">◈</div>
-                <h3>PULSE Report</h3>
-                <div class="tech">HTML · JSON · Email Data · Dashboard Reporting</div>
-                <p>
-                    Developed an HTML dashboard view for the recurring PULSE report,
-                    covering application health, critical jobs, major issues,
-                    deployment status and nightly refreshes using email-derived
-                    information and exported JSON data.
-                </p>
-            </article>
-
-            <article class="card project reveal">
-                <div class="project-icon">⌘</div>
-                <h3>Server Service Automation</h3>
-                <div class="tech">PowerShell · Windows Server · Jump Server</div>
-                <p>
-                    Developed PowerShell automation to check and start selected
-                    services across multiple servers from a jump server, supporting
-                    repetitive operational service-management activities.
-                </p>
-            </article>
-
-            <article class="card project reveal">
-                <div class="project-icon">▣</div>
-                <h3>Splunk Server Reboot Reporting</h3>
-                <div class="tech">Python · Splunk Export · CSV</div>
-                <p>
-                    Developed a Python utility to process exported Splunk logs and
-                    generate structured CSV reports of server reboot activity for
-                    recurring operational analysis.
-                </p>
-            </article>
-
-            <article class="card project reveal">
-                <div class="project-icon">↻</div>
-                <h3>Operational Workflow Automation</h3>
-                <div class="tech">Power Automate · OneDrive · Email</div>
-                <p>
-                    Created Power Automate workflows to track selected operational
-                    email categories for long-term analysis and archive reports
-                    received through email.
-                </p>
-            </article>
-
-            <article class="card project reveal">
-                <div class="project-icon">⌁</div>
-                <h3>Excel and OneDrive Processing</h3>
-                <div class="tech">PowerShell · Excel · OneDrive</div>
-                <p>
-                    Developed PowerShell automation to extract values from Excel
-                    files stored through OneDrive and present processed information
-                    in an operator-friendly output window.
-                </p>
-            </article>
+            <p class="section-intro">
+                Practical tools and dashboards developed to reduce
+                repetitive operational work, improve visibility and
+                simplify reporting.
+            </p>
 
         </div>
+
     </div>
+
+
+    <div class="projects">
+
+
+        <article class="card project reveal">
+
+            <div class="project-icon">
+                ↗
+            </div>
+
+            <h3>
+                Health Check Dashboard
+            </h3>
+
+            <div class="tech">
+                React · HTML · CSV · Operational Monitoring
+            </div>
+
+            <p>
+                Developed a table-style dashboard for daily application
+                and infrastructure health collection. Added quick
+                search, RED/AMBER/GREEN categorisation, read-only
+                management views and CSV export to replace a manual
+                Excel-based process.
+            </p>
+
+        </article>
+
+
+        <article class="card project reveal">
+
+            <div class="project-icon">
+                ◈
+            </div>
+
+            <h3>
+                PULSE Report
+            </h3>
+
+            <div class="tech">
+                HTML · JSON · Email Data · Dashboard Reporting
+            </div>
+
+            <p>
+                Developed an HTML dashboard view for the recurring
+                PULSE report, covering application health, critical
+                jobs, major issues, deployment status and nightly
+                refreshes using email-derived information and exported
+                JSON data.
+            </p>
+
+        </article>
+
+
+        <article class="card project reveal">
+
+            <div class="project-icon">
+                ⌘
+            </div>
+
+            <h3>
+                Server Service Automation
+            </h3>
+
+            <div class="tech">
+                PowerShell · Windows Server · Jump Server
+            </div>
+
+            <p>
+                Developed PowerShell automation to check and start
+                selected services across multiple servers from a jump
+                server, supporting repetitive operational
+                service-management activities.
+            </p>
+
+        </article>
+
+
+        <article class="card project reveal">
+
+            <div class="project-icon">
+                ▣
+            </div>
+
+            <h3>
+                Splunk Server Reboot Reporting
+            </h3>
+
+            <div class="tech">
+                Python · Splunk Export · CSV
+            </div>
+
+            <p>
+                Developed a Python utility to process exported Splunk
+                logs and generate structured CSV reports of server
+                reboot activity for recurring operational analysis.
+            </p>
+
+        </article>
+
+
+        <article class="card project reveal">
+
+            <div class="project-icon">
+                ↻
+            </div>
+
+            <h3>
+                Operational Workflow Automation
+            </h3>
+
+            <div class="tech">
+                Power Automate · OneDrive · Email
+            </div>
+
+            <p>
+                Created Power Automate workflows to track selected
+                operational email categories for long-term analysis
+                and archive reports received through email.
+            </p>
+
+        </article>
+
+
+        <article class="card project reveal">
+
+            <div class="project-icon">
+                ⌁
+            </div>
+
+            <h3>
+                Excel and OneDrive Processing
+            </h3>
+
+            <div class="tech">
+                PowerShell · Excel · OneDrive
+            </div>
+
+            <p>
+                Developed PowerShell automation to extract values from
+                Excel files stored through OneDrive and present
+                processed information in an operator-friendly
+                output window.
+            </p>
+
+        </article>
+
+
+    </div>
+
+</div>
+
 </section>
+
+
+<!-- ======================================================
+     SKILLS
+     ====================================================== -->
 
 <section class="section" id="skills">
-    <div class="container">
 
-        <div class="section-header reveal">
-            <div class="section-number">03 / SKILLS</div>
-            <div>
-                <h2 class="section-title">Technical<br>Toolkit</h2>
-                <p class="section-intro">
-                    A blend of production operations, observability, cloud
-                    fundamentals, scripting and workflow automation.
-                </p>
-            </div>
+<div class="container">
+
+    <div class="section-header reveal">
+
+        <div class="section-number">
+            03 / SKILLS
         </div>
 
-        <div class="skills-panel reveal">
+        <div>
 
-            <div class="skill-group">
-                <div class="skill-group-title">Production Support</div>
-                <div class="tags">
-                    <span class="tag">NOC Support</span>
-                    <span class="tag">Production Support</span>
-                    <span class="tag">Non-Production Support</span>
-                    <span class="tag">Major Incident Management</span>
-                    <span class="tag">Incident Management</span>
-                    <span class="tag">Problem Management</span>
-                    <span class="tag">Change Management</span>
-                    <span class="tag">Incident Triage</span>
-                    <span class="tag">Troubleshooting</span>
-                    <span class="tag">Root Cause Analysis</span>
-                    <span class="tag">SLA Management</span>
-                    <span class="tag">Deployment Support</span>
-                    <span class="tag">Patch and Maintenance Support</span>
-                </div>
-            </div>
+            <h2 class="section-title">
+                Technical<br>
+                Toolkit
+            </h2>
 
-            <div class="skill-group">
-                <div class="skill-group-title">Monitoring and ITSM</div>
-                <div class="tags">
-                    <span class="tag">Splunk</span>
-                    <span class="tag">Splunk Observability</span>
-                    <span class="tag">Check_MK</span>
-                    <span class="tag">AppDynamics</span>
-                    <span class="tag">PRTG</span>
-                    <span class="tag">SolarWinds</span>
-                    <span class="tag">Park My Cloud</span>
-                    <span class="tag">IBM Turbonomic</span>
-                    <span class="tag">ServiceNow</span>
-                    <span class="tag">Log Analysis</span>
-                    <span class="tag">Alert Investigation</span>
-                    <span class="tag">Infrastructure Monitoring</span>
-                    <span class="tag">Application Monitoring</span>
-                </div>
-            </div>
-
-            <div class="skill-group">
-                <div class="skill-group-title">Automation and Development</div>
-                <div class="tags">
-                    <span class="tag">Python</span>
-                    <span class="tag">PowerShell</span>
-                    <span class="tag">Power Automate</span>
-                    <span class="tag">React</span>
-                    <span class="tag">HTML</span>
-                    <span class="tag">CSV Reporting</span>
-                    <span class="tag">Excel/OneDrive Automation</span>
-                    <span class="tag">Operational Workflow Automation</span>
-                </div>
-            </div>
-
-            <div class="skill-group">
-                <div class="skill-group-title">Cloud and Infrastructure</div>
-                <div class="tags">
-                    <span class="tag">Microsoft Azure</span>
-                    <span class="tag">AKS Monitoring</span>
-                    <span class="tag">Azure Alerts</span>
-                    <span class="tag">Azure Logs</span>
-                    <span class="tag">Resource Troubleshooting</span>
-                    <span class="tag">Windows Server</span>
-                    <span class="tag">Ubuntu/Linux</span>
-                    <span class="tag">SSH</span>
-                    <span class="tag">UFW</span>
-                    <span class="tag">Docker</span>
-                    <span class="tag">Portainer</span>
-                    <span class="tag">Networking Fundamentals</span>
-                </div>
-            </div>
-
-            <div class="skill-group">
-                <div class="skill-group-title">Development and Security Foundations</div>
-                <div class="tags">
-                    <span class="tag">Git/GitHub</span>
-                    <span class="tag">MySQL Fundamentals</span>
-                    <span class="tag">SQL Fundamentals</span>
-                    <span class="tag">Cybersecurity/SOC Fundamentals</span>
-                </div>
-            </div>
+            <p class="section-intro">
+                A blend of production operations, observability,
+                cloud fundamentals, scripting and workflow automation.
+            </p>
 
         </div>
+
     </div>
+
+
+    <div class="skills-panel reveal">
+
+
+        <div class="skill-group">
+
+            <div class="skill-group-title">
+                Production Support
+            </div>
+
+            <div class="tags">
+
+                <span class="tag">NOC Support</span>
+                <span class="tag">Production Support</span>
+                <span class="tag">Non-Production Support</span>
+                <span class="tag">Major Incident Management</span>
+                <span class="tag">Incident Management</span>
+                <span class="tag">Problem Management</span>
+                <span class="tag">Change Management</span>
+                <span class="tag">Incident Triage</span>
+                <span class="tag">Troubleshooting</span>
+                <span class="tag">Root Cause Analysis</span>
+                <span class="tag">SLA Management</span>
+                <span class="tag">Deployment Support</span>
+                <span class="tag">Patch and Maintenance Support</span>
+
+            </div>
+
+        </div>
+
+
+        <div class="skill-group">
+
+            <div class="skill-group-title">
+                Monitoring and ITSM
+            </div>
+
+            <div class="tags">
+
+                <span class="tag">Splunk</span>
+                <span class="tag">Splunk Observability</span>
+                <span class="tag">Check_MK</span>
+                <span class="tag">AppDynamics</span>
+                <span class="tag">PRTG</span>
+                <span class="tag">SolarWinds</span>
+                <span class="tag">Park My Cloud</span>
+                <span class="tag">IBM Turbonomic</span>
+                <span class="tag">ServiceNow</span>
+                <span class="tag">Log Analysis</span>
+                <span class="tag">Alert Investigation</span>
+                <span class="tag">Infrastructure Monitoring</span>
+                <span class="tag">Application Monitoring</span>
+
+            </div>
+
+        </div>
+
+
+        <div class="skill-group">
+
+            <div class="skill-group-title">
+                Automation and Development
+            </div>
+
+            <div class="tags">
+
+                <span class="tag">Python</span>
+                <span class="tag">PowerShell</span>
+                <span class="tag">Power Automate</span>
+                <span class="tag">React</span>
+                <span class="tag">HTML</span>
+                <span class="tag">CSV Reporting</span>
+                <span class="tag">Excel/OneDrive Automation</span>
+                <span class="tag">Operational Workflow Automation</span>
+
+            </div>
+
+        </div>
+
+
+        <div class="skill-group">
+
+            <div class="skill-group-title">
+                Cloud and Infrastructure
+            </div>
+
+            <div class="tags">
+
+                <span class="tag">Microsoft Azure</span>
+                <span class="tag">AKS Monitoring</span>
+                <span class="tag">Azure Alerts</span>
+                <span class="tag">Azure Logs</span>
+                <span class="tag">Resource Troubleshooting</span>
+                <span class="tag">Windows Server</span>
+                <span class="tag">Ubuntu/Linux</span>
+                <span class="tag">SSH</span>
+                <span class="tag">UFW</span>
+                <span class="tag">Docker</span>
+                <span class="tag">Portainer</span>
+                <span class="tag">Networking Fundamentals</span>
+
+            </div>
+
+        </div>
+
+
+        <div class="skill-group">
+
+            <div class="skill-group-title">
+                Development and Security Foundations
+            </div>
+
+            <div class="tags">
+
+                <span class="tag">Git/GitHub</span>
+                <span class="tag">MySQL Fundamentals</span>
+                <span class="tag">SQL Fundamentals</span>
+                <span class="tag">Cybersecurity/SOC Fundamentals</span>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+
 </section>
+
+
+<!-- ======================================================
+     LINKS
+     ====================================================== -->
 
 <section class="section" id="links">
-    <div class="container">
-        <div class="section-header reveal"><div class="section-number">04 / LINKS</div><div>
-        <h2 class="section-title">Find Me<br>Online</h2>
-        <p class="section-intro">Professional and project links for recruiters, hiring managers and technical reviewers.</p></div></div>
-        <div class="projects">
-            <article class="card project reveal"><div class="project-icon">GH</div><h3>GitHub</h3><div class="tech">Projects · Automation · CyberLab</div><p>Source code, infrastructure work, automation experiments and technical projects.</p><div style="margin-top:auto;padding-top:18px"><a class="btn primary" href="https://github.com/Sathiesh1610" target="_blank" rel="noopener">Open GitHub ↗</a></div></article>
-            <article class="card project reveal"><div class="project-icon">in</div><h3>LinkedIn</h3><div class="tech">Professional Profile</div><p>Career history, professional experience and networking profile.</p><div style="margin-top:auto;padding-top:18px"><a class="btn primary" href="https://www.linkedin.com/in/m-sathiesh-357b39231/" target="_blank" rel="noopener">Open LinkedIn ↗</a></div></article>
+
+<div class="container">
+
+    <div class="section-header reveal">
+
+        <div class="section-number">
+            04 / LINKS
         </div>
+
+        <div>
+
+            <h2 class="section-title">
+                Find Me<br>
+                Online
+            </h2>
+
+            <p class="section-intro">
+                Professional and project links for recruiters,
+                hiring managers and technical reviewers.
+            </p>
+
+        </div>
+
     </div>
+
+
+    <div class="projects">
+
+
+        <article class="card project reveal">
+
+            <div class="project-icon">
+                GH
+            </div>
+
+            <h3>
+                GitHub
+            </h3>
+
+            <div class="tech">
+                Projects · Automation · CyberLab
+            </div>
+
+            <p>
+                Source code, infrastructure work, automation
+                experiments and technical projects.
+            </p>
+
+            <div style="margin-top:auto;padding-top:18px">
+
+                <a
+                    class="btn primary"
+                    href="https://github.com/Sathiesh1610"
+                    target="_blank"
+                    rel="noopener">
+
+                    Open GitHub ↗
+
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <article class="card project reveal">
+
+            <div class="project-icon">
+                in
+            </div>
+
+            <h3>
+                LinkedIn
+            </h3>
+
+            <div class="tech">
+                Professional Profile
+            </div>
+
+            <p>
+                Career history, professional experience and
+                networking profile.
+            </p>
+
+            <div style="margin-top:auto;padding-top:18px">
+
+                <a
+                    class="btn primary"
+                    href="https://www.linkedin.com/in/m-sathiesh-357b39231/"
+                    target="_blank"
+                    rel="noopener">
+
+                    Open LinkedIn ↗
+
+                </a>
+
+            </div>
+
+        </article>
+
+
+    </div>
+
+</div>
+
 </section>
+
+
+<!-- ======================================================
+     EDUCATION
+     ====================================================== -->
 
 <section class="section" id="education">
-    <div class="container">
 
-        <div class="section-header reveal">
-            <div class="section-number">04 / EDUCATION</div>
-            <div>
-                <h2 class="section-title">Learning<br>Path</h2>
-            </div>
+<div class="container">
+
+    <div class="section-header reveal">
+
+        <div class="section-number">
+            05 / EDUCATION
         </div>
 
-        <div class="education">
+        <div>
 
-            <article class="card edu-card reveal">
-                <div class="edu-year">2025 – PRESENT</div>
-                <h3>B.Tech. Artificial Intelligence and Machine Learning</h3>
-                <p>Birla Institute of Technology and Science, Pilani</p>
-            </article>
-
-            <article class="card edu-card reveal">
-                <div class="edu-year">2016 – 2019</div>
-                <h3>Diploma in Electronics and Communication</h3>
-                <p>MN Technical Institute</p>
-            </article>
+            <h2 class="section-title">
+                Learning<br>
+                Path
+            </h2>
 
         </div>
+
     </div>
+
+
+    <div class="education">
+
+
+        <article class="card edu-card reveal">
+
+            <div class="edu-year">
+                2025 – PRESENT
+            </div>
+
+            <h3>
+                B.Tech. Artificial Intelligence and Machine Learning
+            </h3>
+
+            <p>
+                Birla Institute of Technology and Science, Pilani
+            </p>
+
+        </article>
+
+
+        <article class="card edu-card reveal">
+
+            <div class="edu-year">
+                2016 – 2019
+            </div>
+
+            <h3>
+                Diploma in Electronics and Communication
+            </h3>
+
+            <p>
+                MN Technical Institute, Bengaluru
+            </p>
+
+        </article>
+
+
+    </div>
+
+</div>
+
 </section>
+
+
+<!-- ======================================================
+     CERTIFICATIONS
+     ====================================================== -->
 
 <section class="section" id="certifications">
-    <div class="container">
 
-        <div class="section-header reveal">
-            <div class="section-number">05 / CERTIFICATION</div>
-            <div>
-                <h2 class="section-title">Credentials</h2>
-            </div>
+<div class="container">
+
+    <div class="section-header reveal">
+
+        <div class="section-number">
+            06 / CERTIFICATION
         </div>
 
-        <div class="certifications">
+        <div>
 
-            <article class="card cert reveal">
-                <div class="cert-icon">✓</div>
-                <div>
-                    <h3>Microsoft Certified: Azure Fundamentals</h3>
-                    <p>AZ-900</p>
-                </div>
-            </article>
-
-            <article class="card cert reveal">
-                <div class="cert-icon">✓</div>
-                <div>
-                    <h3>Microsoft Certified: Security, Compliance, and Identity Fundamentals</h3>
-                    <p>SC-900</p>
-                </div>
-            </article>
+            <h2 class="section-title">
+                Credentials
+            </h2>
 
         </div>
+
     </div>
+
+
+    <div class="certifications">
+
+
+        <article class="card cert reveal">
+
+            <div class="cert-icon">
+                ✓
+            </div>
+
+            <div>
+
+                <h3>
+                    Microsoft Certified:
+                    Azure Fundamentals
+                </h3>
+
+                <p>
+                    AZ-900
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <article class="card cert reveal">
+
+            <div class="cert-icon">
+                ✓
+            </div>
+
+            <div>
+
+                <h3>
+                    Microsoft Certified:
+                    Security, Compliance,
+                    and Identity Fundamentals
+                </h3>
+
+                <p>
+                    SC-900
+                </p>
+
+            </div>
+
+        </article>
+
+
+    </div>
+
+</div>
+
 </section>
+
+
+<!-- ======================================================
+     TRAINING
+     ====================================================== -->
 
 <section class="section" id="training">
-    <div class="container">
 
-        <div class="section-header reveal">
-            <div class="section-number">06 / TRAINING</div>
-            <div>
-                <h2 class="section-title">Continuous<br>Learning</h2>
-            </div>
+<div class="container">
+
+    <div class="section-header reveal">
+
+        <div class="section-number">
+            07 / TRAINING
         </div>
 
-        <div class="training">
-            <div class="training-item reveal">ITIL Awareness</div>
-            <div class="training-item reveal">Data Privacy Compliance</div>
-            <div class="training-item reveal">Agile Operations</div>
-            <div class="training-item reveal">Privacy by Design</div>
-            <div class="training-item reveal">Cybersecurity in SDLC</div>
-            <div class="training-item reveal">Python</div>
-            <div class="training-item reveal">SQL</div>
-            <div class="training-item reveal">PowerShell</div>
-            <div class="training-item reveal">Networking</div>
-            <div class="training-item reveal">Windows Administration</div>
-            <div class="training-item reveal">ServiceNow</div>
+        <div>
+
+            <h2 class="section-title">
+                Continuous<br>
+                Learning
+            </h2>
+
         </div>
+
     </div>
+
+
+    <div class="training">
+
+        <div class="training-item reveal">
+            ITIL Awareness
+        </div>
+
+        <div class="training-item reveal">
+            Data Privacy Compliance
+        </div>
+
+        <div class="training-item reveal">
+            Agile Operations
+        </div>
+
+        <div class="training-item reveal">
+            Privacy by Design
+        </div>
+
+        <div class="training-item reveal">
+            Cybersecurity in SDLC
+        </div>
+
+        <div class="training-item reveal">
+            Python
+        </div>
+
+        <div class="training-item reveal">
+            SQL
+        </div>
+
+        <div class="training-item reveal">
+            PowerShell
+        </div>
+
+        <div class="training-item reveal">
+            Networking
+        </div>
+
+        <div class="training-item reveal">
+            Windows Administration
+        </div>
+
+        <div class="training-item reveal">
+            ServiceNow
+        </div>
+
+    </div>
+
+</div>
+
 </section>
+
+
+<!-- ======================================================
+     TIMELINE
+     ====================================================== -->
 
 <section class="section" id="timeline">
-    <div class="container">
 
-        <div class="section-header reveal">
-            <div class="section-number">07 / TIMELINE</div>
-            <div>
-                <h2 class="section-title">Journey</h2>
-            </div>
+<div class="container">
+
+    <div class="section-header reveal">
+
+        <div class="section-number">
+            08 / TIMELINE
         </div>
 
-        <div class="timeline">
+        <div>
 
-            <div class="timeline-item reveal">
-                <span class="timeline-node"></span>
-                <div class="timeline-card">
-                    <div class="year">2025 – PRESENT</div>
-                    <h3>B.Tech. Artificial Intelligence and Machine Learning</h3>
-                    <p>Birla Institute of Technology and Science, Pilani</p>
-                </div>
-            </div>
-
-            <div class="timeline-item reveal">
-                <span class="timeline-node"></span>
-                <div class="timeline-card">
-                    <div class="year">2022 – PRESENT</div>
-                    <h3>Systems Engineer NOC and Incident Management</h3>
-                    <p>INFOSYS</p>
-                </div>
-            </div>
-
-            <div class="timeline-item reveal">
-                <span class="timeline-node"></span>
-                <div class="timeline-card">
-                    <div class="year">2020 – 2022</div>
-                    <h3>Project Engineer</h3>
-                    <p>Symbiotic Automation Systems Pvt. Ltd.</p>
-                </div>
-            </div>
-
-            <div class="timeline-item reveal">
-                <span class="timeline-node"></span>
-                <div class="timeline-card">
-                    <div class="year">2016 – 2019</div>
-                    <h3>Diploma in Electronics and Communication</h3>
-                    <p>MN Technical Institute</p>
-                </div>
-            </div>
+            <h2 class="section-title">
+                Journey
+            </h2>
 
         </div>
+
     </div>
+
+
+    <div class="timeline">
+
+
+        <div class="timeline-item reveal">
+
+            <span class="timeline-node"></span>
+
+            <div class="timeline-card">
+
+                <div class="year">
+                    2025 – PRESENT
+                </div>
+
+                <h3>
+                    B.Tech. Artificial Intelligence
+                    and Machine Learning
+                </h3>
+
+                <p>
+                    Birla Institute of Technology
+                    and Science, Pilani
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="timeline-item reveal">
+
+            <span class="timeline-node"></span>
+
+            <div class="timeline-card">
+
+                <div class="year">
+                    2022 – PRESENT
+                </div>
+
+                <h3>
+                    Systems Engineer NOC
+                    and Incident Management
+                </h3>
+
+                <p>
+                    INFOSYS
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="timeline-item reveal">
+
+            <span class="timeline-node"></span>
+
+            <div class="timeline-card">
+
+                <div class="year">
+                    2020 – 2022
+                </div>
+
+                <h3>
+                    Project Engineer
+                </h3>
+
+                <p>
+                    Symbiotic Automation Systems Pvt. Ltd.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="timeline-item reveal">
+
+            <span class="timeline-node"></span>
+
+            <div class="timeline-card">
+
+                <div class="year">
+                    2016 – 2019
+                </div>
+
+                <h3>
+                    Diploma in Electronics
+                    and Communication
+                </h3>
+
+                <p>
+                    MN Technical Institute, Bengaluru
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+
 </section>
 
+
+<!-- ======================================================
+     CONTACT
+     ====================================================== -->
+
 <section class="section" id="contact">
+
 <div class="container">
-<div class="section-header reveal"><div class="section-number">08 / CONTACT</div><div>
-<h2 class="section-title">Let's<br>Connect</h2>
-<p class="section-intro">For Production Support, NOC, Incident Management, Monitoring or Operations Automation opportunities, get in touch.</p></div></div>
-<div class="card reveal"><div class="contact-list">
-<div class="contact-item"><small>Email</small><a href="mailto:sathieshlingam16@outlook.com">sathieshlingam16@outlook.com</a></div>
-<div class="contact-item"><small>Phone</small><a href="tel:+919071276172">+91 9071276172</a></div>
-<div class="contact-item"><small>GitHub</small><a href="https://github.com/Sathiesh1610" target="_blank" rel="noopener">github.com/Sathiesh1610</a></div>
-<div class="contact-item"><small>LinkedIn</small><a href="https://www.linkedin.com/in/m-sathiesh-357b39231/" target="_blank" rel="noopener">linkedin.com/in/m-sathiesh-357b39231/</a></div>
-</div></div></div></section>
+
+    <div class="section-header reveal">
+
+        <div class="section-number">
+            09 / CONTACT
+        </div>
+
+        <div>
+
+            <h2 class="section-title">
+                Let's<br>
+                Connect
+            </h2>
+
+            <p class="section-intro">
+                For Production Support, NOC, Incident Management,
+                Monitoring or Operations Automation opportunities,
+                get in touch.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="card reveal">
+
+        <div class="contact-list">
+
+
+            <div class="contact-item">
+
+                <small>
+                    Email
+                </small>
+
+                <a href="mailto:sathieshlingam16@outlook.com">
+                    sathieshlingam16@outlook.com
+                </a>
+
+            </div>
+
+
+            <div class="contact-item">
+
+                <small>
+                    Phone
+                </small>
+
+                <a href="tel:+919071276172">
+                    +91 9071276172
+                </a>
+
+            </div>
+
+
+            <div class="contact-item">
+
+                <small>
+                    GitHub
+                </small>
+
+                <a
+                    href="https://github.com/Sathiesh1610"
+                    target="_blank"
+                    rel="noopener">
+
+                    github.com/Sathiesh1610
+
+                </a>
+
+            </div>
+
+
+            <div class="contact-item">
+
+                <small>
+                    LinkedIn
+                </small>
+
+                <a
+                    href="https://www.linkedin.com/in/m-sathiesh-357b39231/"
+                    target="_blank"
+                    rel="noopener">
+
+                    linkedin.com/in/m-sathiesh-357b39231/
+
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
 
 </main>
 
+
+<!-- ======================================================
+     FOOTER
+     ====================================================== -->
+
 <footer>
-    <div class="container footer-inner">
-        <div class="footer-name">SATHIESH</div>
-        <div>Systems Engineer NOC and Production Support</div>
-        <a href="mailto:sathieshlingam16@outlook.com">Contact me ↗</a>
+
+<div class="container footer-inner">
+
+    <div class="footer-name">
+        SATHIESH
     </div>
+
+    <div>
+        Systems Engineer NOC and Production Support
+    </div>
+
+    <a href="mailto:sathieshlingam16@outlook.com">
+        Contact me ↗
+    </a>
+
+</div>
+
 </footer>
 
+
+<!-- ======================================================
+     JAVASCRIPT
+     ====================================================== -->
+
 <script>
+
+/* =========================================================
+   NAVIGATION SCROLL
+   ========================================================= */
+
 const nav = document.getElementById("nav");
 
 window.addEventListener("scroll", () => {
-    nav.classList.toggle("scrolled", window.scrollY > 30);
+
+    nav.classList.toggle(
+        "scrolled",
+        window.scrollY > 30
+    );
+
 });
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if(entry.isIntersecting){
-            entry.target.classList.add("visible");
-            observer.unobserve(entry.target);
+
+/* =========================================================
+   REVEAL ANIMATION
+   ========================================================= */
+
+const observer =
+    new IntersectionObserver(
+        (entries) => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add(
+                        "visible"
+                    );
+
+                    observer.unobserve(
+                        entry.target
+                    );
+
+                }
+
+            });
+
+        },
+        {
+            threshold: .08
         }
-    });
-},{threshold:.08});
-
-document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
-</script>
+    );
 
 
-<script>
-(function(){
-    const root = document.documentElement;
-    const toggle = document.getElementById('themeToggle');
-    const icon = document.getElementById('themeIcon');
-    const label = document.getElementById('themeLabel');
+document
+    .querySelectorAll(".reveal")
+    .forEach(el => observer.observe(el));
 
-    function applyTheme(theme){
-        const light = theme === 'light';
-        root.classList.toggle('light', light);
-        if (icon) icon.textContent = light ? '☾' : '☀';
-        if (label) label.textContent = light ? 'Dark' : 'Light';
+
+/* =========================================================
+   LIGHT / DARK THEME
+   ========================================================= */
+
+(function () {
+
+    const root =
+        document.documentElement;
+
+    const toggle =
+        document.getElementById(
+            "themeToggle"
+        );
+
+    const icon =
+        document.getElementById(
+            "themeIcon"
+        );
+
+    const label =
+        document.getElementById(
+            "themeLabel"
+        );
+
+
+    function applyTheme(theme) {
+
+        const light =
+            theme === "light";
+
+
+        root.classList.toggle(
+            "light",
+            light
+        );
+
+
+        if (icon) {
+
+            icon.textContent =
+                light ? "☾" : "☀";
+
+        }
+
+
+        if (label) {
+
+            label.textContent =
+                light ? "Dark" : "Light";
+
+        }
+
+
         if (toggle) {
-            toggle.setAttribute('aria-label', light ? 'Switch to dark mode' : 'Switch to light mode');
-            toggle.setAttribute('title', light ? 'Switch to dark mode' : 'Switch to light mode');
+
+            toggle.setAttribute(
+                "aria-label",
+                light
+                    ? "Switch to dark mode"
+                    : "Switch to light mode"
+            );
+
+            toggle.setAttribute(
+                "title",
+                light
+                    ? "Switch to dark mode"
+                    : "Switch to light mode"
+            );
+
         }
+
     }
 
-    const saved = localStorage.getItem('portfolio-theme');
-    const preferred = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+
+    const saved =
+        localStorage.getItem(
+            "portfolio-theme"
+        );
+
+
+    const preferred =
+        saved ||
+        (
+            window.matchMedia(
+                "(prefers-color-scheme: light)"
+            ).matches
+                ? "light"
+                : "dark"
+        );
+
+
     applyTheme(preferred);
 
+
     if (toggle) {
-        toggle.addEventListener('click', function(){
-            const next = root.classList.contains('light') ? 'dark' : 'light';
-            localStorage.setItem('portfolio-theme', next);
-            applyTheme(next);
-        });
+
+        toggle.addEventListener(
+            "click",
+            function () {
+
+                const next =
+                    root.classList.contains(
+                        "light"
+                    )
+                        ? "dark"
+                        : "light";
+
+
+                localStorage.setItem(
+                    "portfolio-theme",
+                    next
+                );
+
+
+                applyTheme(next);
+
+            }
+        );
+
     }
+
 })();
+
 </script>
+
 
 </body>
 </html>

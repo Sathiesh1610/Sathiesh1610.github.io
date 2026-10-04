@@ -1059,13 +1059,41 @@ h1 {
     gap: 18px;
 }
 
-.cert {
+.card.cert{
+    display:flex;
+    gap:17px;
+    align-items:center;
+    flex-wrap:wrap;
+    padding:15px;
+}
 
-    display: flex;
+.cert-details{
+    flex:1;
+    min-width:180px;
+}
 
-    gap: 17px;
+.credly-badge{
+    width:150px;
+    height:135px;
+    flex:0 0 150px;
+    display:flex;
+    align-items:flex-start;
+    justify-content:center;
+    overflow:hidden;
+}
 
-    align-items: center;
+.credly-badge > div{
+    width:150px;
+    height:135px;
+}
+
+.verified{
+    display:inline-block;
+    margin-top:10px;
+    color:var(--accent);
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:.1em;
 }
 
 .cert-icon {
@@ -1107,6 +1135,44 @@ h1 {
     margin: 4px 0 0;
 }
 
+.cert-content{
+    flex:1;
+    min-width:0;
+}
+
+.credential-status{
+    display:block;
+    margin-top:12px;
+    color:var(--accent);
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+}
+
+.credly-badge{
+    flex:none;
+    width:150px;
+    height:135px;
+    min-height:135px;
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+}
+
+.credly-badge iframe{
+    max-width:150px;
+    border:0;
+}
+
+.cert-badge-image {
+    width: 150px;
+    height: 135px;
+    object-fit: contain;
+    display: block;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.02);
+}
 
 /* =========================================================
    TRAINING
@@ -1201,7 +1267,7 @@ h1 {
 .timeline-node {
 
     position: absolute;
-
+ 
     top: 4px;
 
     width: 9px;
@@ -1527,6 +1593,242 @@ footer {
 
         flex-direction: column;
     }
+
+    .cert{
+        align-items:flex-start;
+    }
+
+    .credly-badge{
+        margin-top:10px auto 0;
+    }
+}
+
+
+
+/* =========================================================
+   SCROLL PROGRESS BAR
+   ========================================================= */
+
+#scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 2px;
+    width: 0%;
+    background: var(--accent);
+    z-index: 2000;
+    transition: width .08s linear;
+    box-shadow: 0 0 8px var(--accent);
+}
+
+
+/* =========================================================
+   HERO CANVAS & SPOTLIGHT
+   ========================================================= */
+
+#hero-canvas {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 0;
+    opacity: .3;
+}
+
+#hero-spotlight {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 1;
+    background: radial-gradient(
+        600px circle at var(--mx, 50%) var(--my, 50%),
+        rgba(37,230,195,.06),
+        transparent 70%
+    );
+}
+
+
+
+
+/* =========================================================
+   TYPEWRITER CURSOR
+   ========================================================= */
+
+.tw-cursor {
+    display: inline-block;
+    color: var(--accent);
+    animation: tw-blink .7s step-end infinite;
+    margin-left: 1px;
+    font-weight: 400;
+}
+
+@keyframes tw-blink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0; }
+}
+
+
+/* =========================================================
+   CARD GLOW ANIMATION ON HOVER
+   ========================================================= */
+
+@keyframes card-glow {
+    0%, 100% {
+        box-shadow:
+            0 20px 55px rgba(0,0,0,.12),
+            0 0 18px rgba(37,230,195,.07);
+    }
+    50% {
+        box-shadow:
+            0 20px 55px rgba(0,0,0,.12),
+            0 0 38px rgba(37,230,195,.22);
+    }
+}
+
+.card:hover {
+    border-color: var(--accent);
+    animation: card-glow 2s ease infinite;
+}
+
+
+/* =========================================================
+   STATUS DOT PULSE RING
+   ========================================================= */
+
+.status-dot {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.status-dot::before,
+.status-dot::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: var(--accent);
+    animation: pulse-ring 2.4s ease-out infinite;
+}
+
+.status-dot::after {
+    animation-delay: 1.2s;
+}
+
+@keyframes pulse-ring {
+    0%   { transform: scale(1);   opacity: .55; }
+    100% { transform: scale(3.5); opacity: 0;   }
+}
+
+
+/* =========================================================
+   ACTIVE NAV LINK
+   ========================================================= */
+
+.nav-links a.nav-active {
+    color: var(--accent);
+}
+
+
+/* =========================================================
+   TIMELINE LINE DRAW
+   ========================================================= */
+
+.timeline::before {
+    display: none;
+}
+
+.timeline-line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 0;
+    background: linear-gradient(to bottom, var(--accent), var(--border));
+    transition: height 1.8s cubic-bezier(.25,.8,.25,1);
+}
+
+@media(max-width:650px) {
+    .timeline-line {
+        left: 8px;
+        transform: none;
+    }
+}
+
+
+/* =========================================================
+   MS BADGE (AZ-900 / SC-900 placeholder)
+   ========================================================= */
+
+.ms-badge {
+    width: 150px;
+    min-height: 135px;
+    flex: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ms-badge-inner {
+    width: 150px;
+    background: var(--surface-2);
+    border: 1px solid var(--border-strong);
+    border-radius: 14px;
+    padding: 18px 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    text-align: center;
+    transition:
+        border-color .25s ease,
+        background-color .25s ease;
+}
+
+.ms-badge-inner:hover {
+    border-color: var(--accent);
+}
+
+.ms-badge-logo {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--accent-soft);
+    border: 1.5px solid var(--accent);
+    display: grid;
+    place-items: center;
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: .04em;
+}
+
+.ms-badge-title {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--text-strong);
+    letter-spacing: -.02em;
+}
+
+.ms-badge-sub {
+    font-size: 10px;
+    color: var(--muted);
+    line-height: 1.5;
+    font-weight: 600;
+}
+
+.ms-badge-verified {
+    display: inline-block;
+    margin-top: 4px;
+    color: var(--accent);
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: .1em;
+    text-transform: uppercase;
 }
 
 
@@ -1557,6 +1859,33 @@ footer {
 
         transition: none;
     }
+
+    #hero-canvas,
+    #hero-spotlight {
+        display: none;
+    }
+
+    .tw-cursor {
+        animation: none;
+        opacity: 1;
+    }
+
+    .status-dot::before,
+    .status-dot::after {
+        display: none;
+    }
+
+    .card:hover {
+        animation: none;
+    }
+
+    .timeline-line {
+        transition: none;
+    }
+
+    #scroll-progress {
+        transition: none;
+    }
 }
 
 </style>
@@ -1564,6 +1893,12 @@ footer {
 
 
 <body>
+
+<div id="scroll-progress" aria-hidden="true"></div>
+
+<canvas id="hero-canvas" aria-hidden="true"></canvas>
+<div id="hero-spotlight" aria-hidden="true"></div>
+
 
 <!-- ======================================================
      NAVIGATION
@@ -1579,15 +1914,15 @@ footer {
 
         <div class="nav-links">
 
-            <a href="#experience">Experience</a>
+            <a href="#experience" data-section="experience">Experience</a>
 
-            <a href="#projects">Projects</a>
+            <a href="#projects" data-section="projects">Projects</a>
 
-            <a href="#skills">Skills</a>
+            <a href="#skills" data-section="skills">Skills</a>
 
-            <a href="#education">Education</a>
+            <a href="#education" data-section="education">Education</a>
 
-            <a href="#timeline">Timeline</a>
+            <a href="#timeline" data-section="timeline">Timeline</a>
 
         </div>
 
@@ -1631,7 +1966,7 @@ footer {
         <div class="reveal">
 
             <div class="eyebrow">
-                NOC · Production Support · Automation
+                <span id="typewriter-text"></span><span class="tw-cursor" aria-hidden="true">|</span>
             </div>
 
             <h1>
@@ -1645,7 +1980,7 @@ footer {
             </div>
 
             <p class="hero-copy">
-                NOC and Production Support professional with 6+ years
+                NOC and Production Support professional with <span class="count-up" data-count="6">6</span>+ years
                 of experience across production and non-production
                 environments, incident, problem and change management,
                 monitoring, troubleshooting and operational automation.
@@ -2517,22 +2852,32 @@ footer {
 
 
         <article class="card cert reveal">
-
+            
             <div class="cert-icon">
                 ✓
             </div>
 
-            <div>
-
+            <div class="cert-content">
                 <h3>
-                    Microsoft Certified:
-                    Azure Fundamentals
+                    Fortinet NSE Exam
                 </h3>
 
                 <p>
-                    AZ-900
+                    Introduction to the Threat Landscape v2.0
                 </p>
 
+                <span class="credential-status">
+                    Verified Credential
+                </span>
+
+            </div>
+
+            <div class="credly-badge">
+                <img
+                    class="cert-badge-image"
+                    src="Badges/introduction-to-the-threat-landscape-2-0.png"
+                    alt="Fortinet NSE Exam: Introduction to the Threat Landscape v2.0 badge"
+                >
             </div>
 
         </article>
@@ -2544,7 +2889,41 @@ footer {
                 ✓
             </div>
 
-            <div>
+            <div class="cert-content">
+
+                <h3>
+                    Microsoft Certified:
+                    Azure Fundamentals
+                </h3>
+
+                <p>
+                    AZ-900
+                </p>
+
+                <span class="credential-status">
+                    Verified Credential
+                </span>
+
+            </div>
+
+            <div class="credly-badge ms-badge">
+                <img
+                    class="cert-badge-image"
+                    src="Badges/microsoft-certified-fundamentals-badge.svg"
+                    alt="Microsoft Certified: Azure Fundamentals badge"
+                >
+            </div>
+
+        </article>
+
+
+        <article class="card cert reveal">
+
+            <div class="cert-icon">
+                ✓
+            </div>
+
+            <div class="cert-content">
 
                 <h3>
                     Microsoft Certified:
@@ -2556,9 +2935,23 @@ footer {
                     SC-900
                 </p>
 
+                <span class="credential-status">
+                    Verified Credential
+                </span>
+
+            </div>
+
+            <div class="credly-badge ms-badge">
+                <img
+                    class="cert-badge-image"
+                    src="Badges/microsoft-certified-fundamentals-badge.svg"
+                    alt="Microsoft Certified: Security, Compliance, and Identity Fundamentals badge"
+                >
             </div>
 
         </article>
+        
+        
 
 
     </div>
@@ -2674,6 +3067,7 @@ footer {
 
     <div class="timeline">
 
+        <div class="timeline-line" aria-hidden="true"></div>
 
         <div class="timeline-item reveal">
 
@@ -3095,8 +3489,217 @@ document
 
 })();
 
+
+
+/* =========================================================
+   SCROLL PROGRESS BAR
+   ========================================================= */
+
+const prog = document.getElementById('scroll-progress');
+if (prog) {
+    window.addEventListener('scroll', () => {
+        const scrollable = document.body.scrollHeight - window.innerHeight;
+        const pct = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
+        prog.style.width = pct + '%';
+    }, { passive: true });
+}
+
+
+/* =========================================================
+   HERO PARTICLE CANVAS
+   ========================================================= */
+
+(function () {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const canvas = document.getElementById('hero-canvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    let W, H, nodes, raf;
+
+    function accentColor() {
+        return getComputedStyle(document.documentElement)
+            .getPropertyValue('--accent').trim() || '#25e6c3';
+    }
+    function resize() {
+        W = canvas.width  = window.innerWidth;
+        H = canvas.height = window.innerHeight;
+    }
+    function makeNodes(n) {
+        return Array.from({ length: n }, () => ({
+            x:  Math.random() * W,
+            y:  Math.random() * H,
+            vx: (Math.random() - .5) * .35,
+            vy: (Math.random() - .5) * .35,
+            r:  Math.random() * 1.5 + 1
+        }));
+    }
+    function draw() {
+        ctx.clearRect(0, 0, W, H);
+        const color = accentColor();
+        nodes.forEach(n => {
+            n.x += n.vx; n.y += n.vy;
+            if (n.x < 0 || n.x > W) n.vx *= -1;
+            if (n.y < 0 || n.y > H) n.vy *= -1;
+            ctx.beginPath();
+            ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+            ctx.fillStyle = color;
+            ctx.fill();
+        });
+        for (let i = 0; i < nodes.length; i++) {
+            for (let j = i + 1; j < nodes.length; j++) {
+                const dx = nodes[i].x - nodes[j].x;
+                const dy = nodes[i].y - nodes[j].y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < 130) {
+                    ctx.beginPath();
+                    ctx.moveTo(nodes[i].x, nodes[i].y);
+                    ctx.lineTo(nodes[j].x, nodes[j].y);
+                    ctx.strokeStyle = color;
+                    ctx.globalAlpha = 1 - dist / 130;
+                    ctx.lineWidth   = .5;
+                    ctx.stroke();
+                    ctx.globalAlpha = 1;
+                }
+            }
+        }
+        raf = requestAnimationFrame(draw);
+    }
+    function init() { resize(); nodes = makeNodes(70); draw(); }
+    window.addEventListener('resize', () => { resize(); nodes = makeNodes(70); }, { passive: true });
+    init();
+})();
+
+
+/* =========================================================
+   CURSOR SPOTLIGHT
+   ========================================================= */
+
+(function () {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const spotlight = document.getElementById('hero-spotlight');
+    if (!spotlight) return;
+    document.addEventListener('mousemove', e => {
+        spotlight.style.setProperty('--mx', e.clientX + 'px');
+        spotlight.style.setProperty('--my', e.clientY + 'px');
+    }, { passive: true });
+})();
+
+
+/* =========================================================
+   TYPEWRITER EFFECT
+   ========================================================= */
+
+(function () {
+    const el = document.getElementById('typewriter-text');
+    if (!el) return;
+    const phrases = [
+        'NOC Engineer',
+        'Production Support',
+        'Incident Manager',
+        'Monitoring Specialist',
+        'Automation Builder'
+    ];
+    const PAUSE_END = 1800, PAUSE_START = 400, TYPE = 65, DEL = 35;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        el.textContent = phrases[0]; return;
+    }
+    let pi = 0, ci = 0, del = false;
+    function tick() {
+        const ph = phrases[pi];
+        if (!del) {
+            el.textContent = ph.slice(0, ++ci);
+            if (ci === ph.length) { del = true; setTimeout(tick, PAUSE_END); return; }
+        } else {
+            el.textContent = ph.slice(0, --ci);
+            if (ci === 0) { del = false; pi = (pi + 1) % phrases.length; setTimeout(tick, PAUSE_START); return; }
+        }
+        setTimeout(tick, del ? DEL : TYPE);
+    }
+    tick();
+})();
+
+
+/* =========================================================
+   STAGGERED REVEAL DELAY
+   ========================================================= */
+
+document.querySelectorAll('.cards, .projects, .certifications, .education, .training, .tags')
+    .forEach(group => {
+        Array.from(group.children).forEach((child, i) => {
+            child.style.transitionDelay = (i * 60) + 'ms';
+        });
+    });
+
+
+/* =========================================================
+   ACTIVE NAV HIGHLIGHT
+   ========================================================= */
+
+(function () {
+    const sections = document.querySelectorAll('section[id]');
+    const links    = document.querySelectorAll('.nav-links a[data-section]');
+    if (!links.length) return;
+    const io = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+            if (e.isIntersecting)
+                links.forEach(a =>
+                    a.classList.toggle('nav-active', a.dataset.section === e.target.id)
+                );
+        });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+    sections.forEach(s => io.observe(s));
+})();
+
+
+/* =========================================================
+   NUMBER COUNTER
+   ========================================================= */
+
+(function () {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const els = document.querySelectorAll('.count-up[data-count]');
+    const io  = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+            if (!e.isIntersecting) return;
+            const el = e.target, target = +el.dataset.count;
+            let cur = 0;
+            const step = Math.max(1, Math.ceil(target / 30));
+            const t = setInterval(() => {
+                cur = Math.min(cur + step, target);
+                el.textContent = cur;
+                if (cur >= target) clearInterval(t);
+            }, 40);
+            io.unobserve(el);
+        });
+    }, { threshold: .5 });
+    els.forEach(el => io.observe(el));
+})();
+
+
+/* =========================================================
+   TIMELINE LINE DRAW
+   ========================================================= */
+
+(function () {
+    const line    = document.querySelector('.timeline-line');
+    const wrapper = document.querySelector('.timeline');
+    if (!line || !wrapper) return;
+    const io = new IntersectionObserver(entries => {
+        if (entries[0].isIntersecting) {
+            line.style.height = wrapper.scrollHeight + 'px';
+            io.disconnect();
+        }
+    }, { threshold: .1 });
+    io.observe(wrapper);
+})();
+
 </script>
 
+<script
+    type="text/javascript"
+    async
+    src="https://cdn.credly.com/assets/utilities/embed.js">
+</script>
 
 </body>
 </html>
